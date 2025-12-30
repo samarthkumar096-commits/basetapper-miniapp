@@ -1,0 +1,21 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEyMzQ1LCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4MTIzNDU2Nzg5MGFiY2RlZiJ9",
+    "payload": "eyJkb21haW4iOiJuaS1zYWdlLnZlcmNlbC5hcHAifQ",
+    "signature": "MHg5ODc2NTQzMjEwZmVkY2JhOTg3NjU0MzIxMGZlZGNiYTk4NzY1NDMyMTBmZWRjYmE5ODc2NTQzMjEwZmVkY2Jh"
+  },
+  "frame": {
+    "version": "next",
+    "imageUrl": "https://ni-sage.vercel.app/icon-512.png",
+    "button": {
+      "title": "Launch BaseTapper",
+      "action": {
+        "type": "launch_frame",
+        "name": "BaseTapper",
+        "url": "https://ni-sage.vercel.app",
+        "splashImageUrl": "https://ni-sage.vercel.app/icon-512.png",
+        "splashBackgroundColor": "#1e1b4b"
+      }
+    }
+  }
+}
