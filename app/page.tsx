@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { WalletConnect } from '@/components/WalletConnect';
+import { RealCryptoIntegration } from '@/components/RealCryptoIntegration';
 
 interface Achievement {
   id: string;
@@ -24,6 +26,7 @@ export default function Home() {
   const [comboCount, setComboCount] = useState(0);
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [showStats, setShowStats] = useState(false);
+  const [showWallet, setShowWallet] = useState(false);
   const [totalTaps, setTotalTaps] = useState(0);
   const [achievements, setAchievements] = useState<Achievement[]>([
     { id: '1', title: 'First Tap', description: 'Tap for the first time', icon: '👆', unlocked: false },
@@ -252,6 +255,12 @@ export default function Home() {
         </div>
         <div className="flex gap-2">
           <button 
+            onClick={() => setShowWallet(!showWallet)}
+            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90 transition text-sm font-bold"
+          >
+            💰 Wallet
+          </button>
+          <button 
             onClick={() => setShowStats(!showStats)}
             className="px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition text-sm"
           >
@@ -265,6 +274,32 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+      {/* Wallet Modal */}
+      {showWallet && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowWallet(false)}>
+          <div className="bg-gradient-to-br from-slate-800 to-purple-900 rounded-2xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+            <h2 className="text-2xl font-bold mb-4">💰 Crypto Wallet</h2>
+            
+            {/* Wallet Connect Component */}
+            <div className="mb-4">
+              <WalletConnect />
+            </div>
+
+            {/* Real Crypto Integration */}
+            <div className="mt-4">
+              <RealCryptoIntegration />
+            </div>
+
+            <button
+              onClick={() => setShowWallet(false)}
+              className="w-full mt-4 p-3 bg-white/10 rounded-xl text-white font-bold hover:bg-white/20 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Stats Modal */}
       {showStats && (
