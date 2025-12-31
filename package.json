@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next build",
     "compile": "hardhat compile",
     "deploy": "hardhat run scripts/deploy.ts --network base",
     "deploy:testnet": "hardhat run scripts/deploy.ts --network baseSepolia"
